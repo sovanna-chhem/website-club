@@ -1,0 +1,6 @@
+import { FileText, Plus, MoreHorizontal } from "lucide-react";
+import { resources } from "../../../lib/data";
+
+export default function AdminResourcesPage() {
+  return <><div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="text-xs font-bold uppercase tracking-[.2em] text-lime">Manage</p><h1 className="mt-3 text-3xl font-semibold tracking-tight">Resources.</h1></div><button className="inline-flex w-fit items-center gap-2 rounded-xl bg-lime px-4 py-3 text-sm font-bold text-ink"><Plus size={16} /> Add resource</button></div><div className="grid gap-4 md:grid-cols-2">{resources.map((resource) => <div key={resource.title} className="flex gap-4 rounded-2xl border border-line bg-panel p-5"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-lime/10 text-lime"><FileText size={18} /></span><div className="min-w-0 flex-1"><div className="flex justify-between gap-3"><div><p className="text-[10px] font-bold uppercase tracking-wider text-lime">{resource.type}</p><h2 className="mt-1 font-semibold text-white">{resource.title}</h2></div><MoreHorizontal size={16} className="text-slate-600" /></div><p className="mt-2 text-xs leading-5 text-slate-400">{resource.description}</p><p className="mt-4 text-[11px] text-slate-600">Published · {resource.meta}</p></div></div>)}</div></>;
+}
